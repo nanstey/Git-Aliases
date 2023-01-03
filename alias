@@ -1,0 +1,14 @@
+# add these to your .gitconfig file in the home directory
+
+co = checkout
+com = checkout main
+comp = !git com && git pull
+compr = !git comp && git co - && git rebase main
+clear = !git branch | grep -v "main" | xargs git branch -D
+new = checkout -b
+amend = commit -p --amend --no-edit
+
+branch-name = "!git rev-parse --abbrev-ref HEAD"
+publish = "!git push -u origin $(git branch-name)"
+ll = "log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat"
+coh = "!git fetch && git checkout -B ${1:-$(git branch-name)} origin/${1:-$(git branch-name)} && :"

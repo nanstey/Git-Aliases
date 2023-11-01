@@ -12,3 +12,7 @@ branch-name = "!git rev-parse --abbrev-ref HEAD"
 publish = "!git push -u origin $(git branch-name)"
 ll = "log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat"
 coh = "!git fetch && git checkout -B ${1:-$(git branch-name)} origin/${1:-$(git branch-name)} && :"
+ph = "!git push -f -u origin ${1:-$(git branch-name)}"
+
+# configure these script paths
+sr = "!/path/to/this/script/squash-rebase.sh"
